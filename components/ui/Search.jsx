@@ -2,14 +2,13 @@ import React from 'react'
 import Title from "../ui/Title";
 import Image from 'next/image';
 import { MdOutlineCancelPresentation } from "react-icons/md";
-
-
 import OutsideClickHandler from "react-outside-click-handler";
 
 const Search = ({setIsSearchModal}) => {
     const handleOutsideclick = () => {
         setIsSearchModal(false);
     };
+    
   return (
     <div className="fixed top-0 left-0 w-screen h-screen z-50
     after:content-[''] after:w-screen after:h-screen 
@@ -17,7 +16,7 @@ const Search = ({setIsSearchModal}) => {
     after:left-0 after:opacity-60 grid place-content-center">
         <OutsideClickHandler onOutsideClick={handleOutsideclick}>
             <div className='w-full h-full grid place-content-center'>
-                <div className="relative z-50 w-[600px] h-[600px] bg-white border-2 p-5">
+                <div className="relative z-50 md:w-[600px] w-[370px] bg-white border-2 p-10 rounded-3xl">
                     <Title addClass="text-[40px] text-center">Search</Title>
                     <input 
                         type="text"
