@@ -1,11 +1,18 @@
 import React from 'react'
 import Carousel from '../../components/Carousel'
-const Index = () => {
+import Campaigns from '../../components/Campaigns'
+import MenuWrapper from '../../components/product/MenuWrapper'
+const Home = () => {
   return (
+    // <React.Fragment>
     <div>
-      <Carousel></Carousel>
+      <Carousel />
+      <Campaigns />
+      <MenuWrapper></MenuWrapper>
     </div>
+      
+    // </React.Fragment>
   )
 }
 
-export default Index
+export default Home

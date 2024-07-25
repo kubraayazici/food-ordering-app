@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import Title from './ui/Title';
-import React from 'react'
 import Slider from 'react-slick';
 const Carousel = () => {
-  var settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -11,10 +10,10 @@ const Carousel = () => {
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 30000,
     appenDots: (dots) => (
-      <div>
-        <ul>{dots}</ul>
+      <div className="slick-dots-container">
+        <ul className="slick-dots">{dots}</ul>
       </div>
     ),
     customPaging: (i) => (
@@ -22,29 +21,28 @@ const Carousel = () => {
     ),
   };
   return (
-    <div className='h-screen w-full container mx-auto -mt-[88px]'>
-        <div className='absolute top-0 left-0 w-full h-full'>
-            <div className='relative h-full w-full'>
-                <Image src="/images/bg.jpg" alt='' layout='fill'objectFit='cover'></Image>
-            </div>
+    <div className='h-screen w-full mx-auto -mt-[88px]'>
+      <div className='relative top-0  left-0 w-full h-full'>
+        <div className='absolute h-full w-full'>
+            <Image src="/images/bg.jpg" alt='' layout='fill' objectFit='cover' priority></Image>
         </div>
         <Slider {...settings}>
           <div>
-            <div className='mt-36 text-white flex flex-col items-start gap-y-3'>
-                <Title addClass="text-4xl">Fast Food Restaurant</Title>
-                <p className='text-sm sm:w-3/4 w-full'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit voluptate quia enim, culpa harum, necessitatibus laborum reprehenderit delectus dignissimos ipsum excepturi fuga molestiae numquam neque deserunt ab nobis, repellat eaque?</p>
-                <button className='btn-primary'>Order Now</button>
+            <div className='relative mt-48 container mx-auto text-white flex flex-col items-start gap-y-3'>
+              <Title addClass="text-4xl">Fast Food Restaurant</Title>
+              <p className='text-sm sm:w-2/5 w-full'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit voluptate quia enim, culpa harum, necessitatibus laborum reprehenderit delectus dignissimos ipsum excepturi fuga molestiae numquam neque deserunt ab nobis, repellat eaque?</p>
+              <button className='btn-primary'>Order Now</button>
             </div>
           </div>
           <div>
-            <div className='relative text-white top-36 flex flex-col items-start gap-y-3'>
-                <Title addClass="text-4xl">Fast Food Restaurant</Title>
-                <p className='text-sm sm:w-3/4 w-full'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit voluptate quia enim, culpa harum, necessitatibus laborum reprehenderit delectus dignissimos ipsum excepturi fuga molestiae numquam neque deserunt ab nobis, repellat eaque?</p>
-                <button className='btn-primary'>Order Now</button>
+            <div className='relative mt-48 container mx-auto text-white flex flex-col items-start gap-y-3'>
+              <Title addClass="text-4xl">Fast Food Restaurant</Title>
+              <p className='text-sm sm:w-2/5 w-full'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit voluptate quia enim, culpa harum, necessitatibus laborum reprehenderit delectus dignissimos ipsum excepturi fuga molestiae numquam neque deserunt ab nobis, repellat eaque?</p>
+              <button className='btn-primary'>Order Now</button>
             </div>
           </div>
         </Slider>
-        
+      </div> 
     </div>
   );
 };

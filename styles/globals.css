@@ -25,6 +25,9 @@ html, body, #__next, .full-height {
   @apply text-white px-[30px] py-[8px] rounded-3xl bg-primary cursor-pointer hover:opacity-70 transition-all;
 }
 
+.slick-container {
+  @apply flex flex-col items-start md:items-end; /* Flexbox ile kolon oluştur ve sağa hizala */
+}
 .slick-dots{
   @apply !flex justify-start w-full;
 }
@@ -32,5 +35,5 @@ html, body, #__next, .full-height {
   @apply bg-primary;
 }
 .slick-dots div{
-  @apply !m-0 !mt-6;
+  @apply !m-10 !mt-6;
 }
