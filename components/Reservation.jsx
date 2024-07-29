@@ -1,8 +1,9 @@
 import React from 'react'
 import Title from './ui/Title'
 import Input from './form/Input'
-import { Formik, useFormik } from 'formik';
+import { ErrorMessage, Formik, useFormik } from 'formik';
 import { resolve } from 'styled-jsx/css';
+import { reservationSchema } from '@/public/schema/reservationSchema';
 
 const Reservation = () => {
     const onSubmit = async (values, actions) => {
@@ -17,7 +18,8 @@ const Reservation = () => {
             persons: "",
             date: ""
         },
-        onSubmit
+        onSubmit,
+        validationSchema: reservationSchema,
     });
     const inputs = [
         {
@@ -25,34 +27,44 @@ const Reservation = () => {
             name: "fullName",
             type: "text",
             placeholder: "Your Full Name",
-            value: formik.values.fullName
+            value: formik.values.fullName,
+            ErrorMessage: formik.errors.fullName,
+            touched: formik.touched.fullName
         },
         {
             id: 2,
             name: "phoneNumber",
             type: "number",
             placeholder: "Your Phone Number",
-            value: formik.values.phoneNumber
+            value: formik.values.phoneNumber,
+            ErrorMessage: formik.errors.phoneNumber,
+            touched: formik.touched.phoneNumber
         },
         {
             id: 3,
             name: "email",
             type: "email",
             placeholder: "Your Email Address",
-            value: formik.values.email
+            value: formik.values.email,
+            ErrorMessage: formik.errors.email,
+            touched: formik.touched.email
         },
         {
             id: 4,
             name: "persons",
             type: "number",
             placeholder: "How Many Persons?",
-            value: formik.values.persons
+            value: formik.values.persons,
+            ErrorMessage: formik.errors.persons,
+            touched: formik.touched.persons
         },
         {
             id: 5,
             name: "date",
             type: "datetime-local",
-            value: formik.values.date
+            value: formik.values.date,
+            ErrorMessage: formik.errors.date,
+            touched: formik.touched.date
         }
     ];
   return (
@@ -62,7 +74,7 @@ const Reservation = () => {
             <form className='lg:flex-1 w-full' onSubmit={formik.handleSubmit}>
                 <div className='flex flex-col gap-y-3'>
                     {inputs.map((input)=>(
-                        <Input key={input.id} {...input} onChange={formik.handleChange}></Input>
+                        <Input key={input.id} {...input} onChange={formik.handleChange} onBlur={formik.handleBlur}></Input>
                     ))}
                 </div>
                 <button className="btn-primary mt-4" type='submit'>BOOK NOW</button>
