@@ -14,10 +14,7 @@ export default function Index() {
       </Head>
       <Header/>
       {/* <h1 className="text-center h-screen bg-primary">FOOD ORDERING</h1> */}
-      <Home/>
-      <div className="p-20 container mx-auto">
-        <Input />
-      </div>
+      <Home/> 
     </div>
   );
 }
